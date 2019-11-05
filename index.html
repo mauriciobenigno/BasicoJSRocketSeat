@@ -10,6 +10,15 @@
         <div id="app"></div>
         
         <script>
+            function getRandomColor() {
+                var letters = "0123456789ABCDEF";
+                var color = "#";
+                for (var i = 0; i < 6; i++) {
+                    color += letters[Math.floor(Math.random() * 16)];
+                }
+                return color;
+            }
+
             function criarCaixa()
             {
                 var divElement = document.createElement("div");
@@ -18,7 +27,10 @@
                 divElement.style.backgroundColor = "#f00";
                 divElement.style.float = 'left';
                 divElement.classList.add('box');
-
+                divElement.onmouseover = function()
+                {
+                    divElement.style.backgroundColor = getRandomColor(); 
+                }
                 var containerElement = document.querySelector('#app');
                 containerElement.appendChild(divElement);
             }
